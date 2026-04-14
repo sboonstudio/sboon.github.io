@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Project Portfolio</title>
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-glow: rgba(56, 189, 248, 0.3);
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* Background Decoration */
+        .bg-blob {
+            position: fixed;
+            top: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            z-index: -1;
+            filter: blur(80px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-top: 4rem;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #f8fafc, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--card-border);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05));
+            pointer-events: none;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .card-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            background: rgba(56, 189, 248, 0.1);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .card-footer {
+            margin-top: auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-color);
+            color: #000;
+            text-decoration: none;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+            .container {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-blob"></div>
+
+    <div class="container">
+        <header>
+            <h1>Project Portfolio</h1>
+            <p>ยินดีต้อนรับสู่พื้นที่รวบรวมโปรเจกต์และการเรียนรู้สำหรับ GitHub Pages</p>
+        </header>
+
+        <div class="project-grid">
+            <!-- TEST01 Card -->
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="layout"></i>
+                </div>
+                <h3>TEST01: Full-stack App</h3>
+                <p>แอปพลิเคชันระบบจัดการข้อมูลที่พัฒนาด้วย React (Vite) ในส่วน Client และ Node.js (Express) พร้อมฐานข้อมูล SQLite ในส่วน Server</p>
+                <div class="card-footer">
+                    <a href="../TEST01/client/" class="btn">
+                        View Demo
+                        <i data-lucide="external-link" style="width: 16px;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- TEST02 Card -->
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="code-2"></i>
+                </div>
+                <h3>TEST02: Python Tutorial</h3>
+                <p>รวบรวมบทเรียนพื้นฐานภาษา Python ตั้งแต่การเขียนโปรแกรมคำนวณเบื้องต้น ไปจนถึงการรันผ่านระบบ Docker Container</p>
+                <div class="card-footer">
+                    <a href="../TEST02/python-tutorial/" class="btn">
+                        Learn More
+                        <i data-lucide="chevron-right" style="width: 16px;"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- TEST03 Card -->
+            <div class="card">
+                <div class="card-icon">
+                    <i data-lucide="terminal"></i>
+                </div>
+                <h3>TEST03: Docker Guide</h3>
+                <p>คู่มือและวิธีการใช้งาน Docker ขั้นสูง สำหรับการรัน Python Scripts โดยไม่ต้องติดตั้ง Python บนเครื่องหลักผ่าน Volume Mounting</p>
+                <div class="card-footer">
+                    <a href="../TEST03/python-tutorial/" class="btn">
+                        Read Docs
+                        <i data-lucide="book-open" style="width: 16px;"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Project Portfolio | สร้างโดย Gemini CLI</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
